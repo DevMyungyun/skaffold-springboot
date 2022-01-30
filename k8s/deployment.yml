@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot
+  namespace: skaffold
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-boot
+  template:
+    metadata:
+      labels:
+        app: spring-boot
+    spec:
+      containers:
+        - name: spring-boot
+          image: devmyungyun/spring-boot-ex
+          ports:
+            - containerPort: 8080
